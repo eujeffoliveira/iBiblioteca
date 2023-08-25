@@ -12,5 +12,49 @@ namespace iBiblioteca.WEB.Controllers
             List<Tbautor> oListAutor = oAutorServices.oRepositoryAutor.SelecionarTodos();
             return View(oListAutor);
         }
+        public IActionResult Create()
+        {
+            return View();
+        }
+        //public IActionResult Details(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    Tbautor oAutor = oAutorServices.oRepositoryAutor.SelecionarPK(id);
+        //    if (oAutor == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return View(oAutor);
+        //}
+        //public IActionResult Edit(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    Tbautor oAutor = oAutorServices.oRepositoryAutor.SelecionarPK(id);
+        //    if (oAutor == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return View(oAutor);
+        //}
+        //public IActionResult Delete(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    Tbautor oAutor = oAutorServices.oRepositoryAutor.SelecionarPK(id);
+        //    if (oAutor == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return View(oAutor);
+        //}  
+               
     }
 }
