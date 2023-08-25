@@ -12,5 +12,9 @@ namespace iBiblioteca.WEB.Controllers
             List<Tbeditora> oListEditora = oEditoraService.oRepositoryEditora.SelecionarTodos();
             return View(oListEditora);
         }
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }

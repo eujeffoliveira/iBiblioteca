@@ -12,5 +12,9 @@ namespace iBiblioteca.WEB.Controllers
             List<Tblivro> oListLivro = oLivroService.oRepositoryLivro.SelecionarTodos();
             return View(oListLivro);
         }
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }

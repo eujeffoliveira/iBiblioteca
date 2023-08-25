@@ -12,5 +12,9 @@ namespace iBiblioteca.WEB.Controllers
             List<Tbcolecao> oListColecao = oColecaoService.oRepositoryColecao.SelecionarTodos();
             return View(oListColecao);
         }
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }

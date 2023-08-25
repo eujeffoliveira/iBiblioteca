@@ -12,5 +12,10 @@ namespace iBiblioteca.WEB.Controllers
             List<TbcapaLivro> oListCapaLivro = oCapaLivroService.oRepositoryCapa.SelecionarTodos();
             return View(oListCapaLivro);
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }
