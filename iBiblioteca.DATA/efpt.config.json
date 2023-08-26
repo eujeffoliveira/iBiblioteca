@@ -16,10 +16,6 @@
    "T4TemplatePath": null,
    "Tables": [
       {
-         "Name": "[dbo].[TB_LIVRO_AUTOR]",
-         "ObjectType": 0
-      },
-      {
          "Name": "[dbo].[TBAUTOR]",
          "ObjectType": 0
       },
@@ -38,6 +34,10 @@
       {
          "Name": "[dbo].[TBLIVRO]",
          "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[VWLIVRO]",
+         "ObjectType": 3
       }
    ],
    "UiHint": "tars.DBIBIBLIOTECA.dbo",

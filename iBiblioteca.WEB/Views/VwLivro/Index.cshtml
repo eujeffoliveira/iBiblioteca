@@ -1,0 +1,106 @@
+﻿@model IEnumerable<iBiblioteca.DATA.Models.Vwlivro>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeConhecido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataPublicacao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Isbn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Editora)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Paginas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Preco)
+            </th>                   
+            <th>
+                @Html.DisplayNameFor(model => model.Colecao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Capa)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeConhecido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataPublicacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Isbn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Editora)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Paginas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Preco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Colecao)
+            </td>
+            <td>
+              <img src="@Url.Action("GetImage", "VwLivroController", new {id = item.Capa})" width="100" height="100" />
+            </td>            
+                <td>
+                    <a asp-action="Edit" class="btn btn-secondary mr-1" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" class="btn btn-info mr-1" asp-route-id="@item.Id">Details</a> |
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-danger mr-1" data-bs-toggle="modal" data-bs-target="#DeleteModal-@item.Id">
+                        Apagar
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="DeleteModal-@item.Id" tabindex="-1" aria-labelledby="DeleteModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="DeleteModalLabel">Excluir Livro</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Deseja realmente excluir o livro @item.Titulo? Esta ação não poderá ser desfeita.
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+                                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id">Sim</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>
