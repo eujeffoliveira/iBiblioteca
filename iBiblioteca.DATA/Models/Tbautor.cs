@@ -19,7 +19,6 @@ public partial class Tbautor
     [Column("NOME")]
     [StringLength(50)]
     [Unicode(false)]
-    [Display(Name = "Nome")]
     public string Nome { get; set; }
 
     [Required]
