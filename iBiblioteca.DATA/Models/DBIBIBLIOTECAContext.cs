@@ -27,9 +27,10 @@ public partial class DBIBIBLIOTECAContext : DbContext
 
     public virtual DbSet<Tblivro> Tblivro { get; set; }
 
+    public virtual DbSet<Vwlivro> Vwlivro { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer("Data Source=TARS;Initial Catalog=DBIBIBLIOTECA;Integrated Security=True;TrustServerCertificate=True");
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Tbautor>(entity =>
@@ -56,10 +57,6 @@ public partial class DBIBIBLIOTECAContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PK__TBLIVRO__3214EC27E442566A");
 
-            entity.HasOne(d => d.IdAutor1).WithMany(p => p.Tblivro)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_LIVRO_AUTOR");
-
             entity.HasOne(d => d.IdCapaNavigation).WithMany(p => p.Tblivro).HasConstraintName("FK_LIVRO_CAPA");
 
             entity.HasOne(d => d.IdColecaoNavigation).WithMany(p => p.Tblivro).HasConstraintName("FK_LIVRO_COLECAO");
@@ -67,25 +64,11 @@ public partial class DBIBIBLIOTECAContext : DbContext
             entity.HasOne(d => d.IdEditoraNavigation).WithMany(p => p.Tblivro)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_LIVRO_EDITORA");
+        });
 
-            entity.HasMany(d => d.IdAutorNavigation).WithMany(p => p.IdLivro)
-                .UsingEntity<Dictionary<string, object>>(
-                    "TbLivroAutor",
-                    r => r.HasOne<Tbautor>().WithMany()
-                        .HasForeignKey("IdAutor")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_TB_LIVRO_AUTOR_AUTOR"),
-                    l => l.HasOne<Tblivro>().WithMany()
-                        .HasForeignKey("IdLivro")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_TB_LIVRO_AUTOR_LIVRO"),
-                    j =>
-                    {
-                        j.HasKey("IdLivro", "IdAutor").HasName("PK__TB_LIVRO__B74B39EA0971D3F2");
-                        j.ToTable("TB_LIVRO_AUTOR");
-                        j.IndexerProperty<int>("IdLivro").HasColumnName("ID_LIVRO");
-                        j.IndexerProperty<int>("IdAutor").HasColumnName("ID_AUTOR");
-                    });
+        modelBuilder.Entity<Vwlivro>(entity =>
+        {
+            entity.ToView("VWLIVRO");
         });
 
         OnModelCreatingPartial(modelBuilder);
