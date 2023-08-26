@@ -31,6 +31,7 @@ public partial class Tblivro
 
     [Column("DATA_PUBLICACAO", TypeName = "date")]
     [Display(Name = "Data da Publicação")]
+    [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
     public DateTime DataPublicacao { get; set; }
 
     [Required]

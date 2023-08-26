@@ -16,7 +16,7 @@
                 @Html.DisplayNameFor(model => model.Titulo)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdAutor)
+                @Html.DisplayNameFor(model => model.IdAutor1)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.DataPublicacao)
@@ -49,7 +49,7 @@
                 @Html.DisplayFor(modelItem => item.Titulo)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdAutor)
+                @Html.DisplayFor(modelItem => item.IdAutor1.NomeConhecido)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DataPublicacao)
@@ -70,7 +70,7 @@
                 @Html.DisplayFor(modelItem => item.IdColecaoNavigation.Nome)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdCapaNavigation.Nome)
+                @Html.DisplayFor(modelItem => item.IdCapaNavigation.Capa)
             </td>
                 <td>
                     <a asp-action="Edit" class="btn btn-secondary mr-1" asp-route-id="@item.Id">Edit</a> |
