@@ -19,24 +19,28 @@ public partial class Tbautor
     [Column("NOME")]
     [StringLength(50)]
     [Unicode(false)]
+    [Display(Name = "Nome")]
     public string Nome { get; set; }
 
     [Required]
     [Column("SOBRENOME")]
     [StringLength(50)]
     [Unicode(false)]
+    [Display(Name = "Sobrenome")]
     public string Sobrenome { get; set; }
 
     [Required]
     [Column("NOME_CONHECIDO")]
     [StringLength(50)]
     [Unicode(false)]
+    [Display(Name = "Nome Conhecido")]
     public string NomeConhecido { get; set; }
 
     [Required]
     [Column("NACIONALIDADE")]
     [StringLength(50)]
     [Unicode(false)]
+    [Display(Name = "Nacionalidade")]
     public string Nacionalidade { get; set; }
 
     [InverseProperty("IdAutor1")]

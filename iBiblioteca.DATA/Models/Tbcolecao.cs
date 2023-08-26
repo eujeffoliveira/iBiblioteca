@@ -19,6 +19,7 @@ public partial class Tbcolecao
     [Column("NOME")]
     [StringLength(50)]
     [Unicode(false)]
+    [Display(Name = "Nome da Coleção")]
     public string Nome { get; set; }
 
     [InverseProperty("IdColecaoNavigation")]

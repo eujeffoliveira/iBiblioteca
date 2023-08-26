@@ -19,6 +19,7 @@ public partial class Tbeditora
     [Column("NOME")]
     [StringLength(50)]
     [Unicode(false)]
+    [Display(Name = "Nome da Editora")]
     public string Nome { get; set; }
 
     [InverseProperty("IdEditoraNavigation")]

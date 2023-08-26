@@ -19,15 +19,18 @@ public partial class TbcapaLivro
     [Column("NOME")]
     [StringLength(50)]
     [Unicode(false)]
+    [Display(Name = "Nome")]
     public string Nome { get; set; }
 
     [Required]
     [Column("CAPA")]
+    [Display(Name = "Imagem da Capa")]
     public byte[] Capa { get; set; }
 
     [Column("CAMINHO")]
     [StringLength(255)]
     [Unicode(false)]
+    [Display(Name = "Caminho da Imagem")]
     public string Caminho { get; set; }
 
     [InverseProperty("IdCapaNavigation")]

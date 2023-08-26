@@ -16,10 +16,16 @@
                 @Html.DisplayNameFor(model => model.Titulo)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.IdAutor)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.DataPublicacao)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Isbn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdEditoraNavigation)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Paginas)
@@ -28,17 +34,11 @@
                 @Html.DisplayNameFor(model => model.Preco)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdAutor1)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdCapaNavigation)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.IdColecaoNavigation)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdEditoraNavigation)
-            </th>
+                @Html.DisplayNameFor(model => model.IdCapaNavigation)
+            </th>       
             <th></th>
         </tr>
     </thead>
@@ -49,28 +49,28 @@
                 @Html.DisplayFor(modelItem => item.Titulo)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.IdAutor)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.DataPublicacao)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Isbn)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.IdEditoraNavigation.Nome)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Paginas)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Preco)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdAutor1.Nacionalidade)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdCapaNavigation.Nome)
-            </td>
+            </td>            
             <td>
                 @Html.DisplayFor(modelItem => item.IdColecaoNavigation.Nome)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdEditoraNavigation.Nome)
+                @Html.DisplayFor(modelItem => item.IdCapaNavigation.Nome)
             </td>
                 <td>
                     <a asp-action="Edit" class="btn btn-secondary mr-1" asp-route-id="@item.Id">Edit</a> |

@@ -22,49 +22,62 @@ public partial class Tblivro
     [Column("TITULO")]
     [StringLength(100)]
     [Unicode(false)]
+    [Display(Name = "Título")]
     public string Titulo { get; set; }
 
     [Column("ID_AUTOR")]
+    [Display(Name = "Autor")]
     public int IdAutor { get; set; }
 
     [Column("DATA_PUBLICACAO", TypeName = "date")]
+    [Display(Name = "Data da Publicação")]
     public DateTime DataPublicacao { get; set; }
 
     [Required]
     [Column("ISBN")]
     [StringLength(20)]
     [Unicode(false)]
+    [Display(Name = "ISBN")]
     public string Isbn { get; set; }
 
     [Column("ID_EDITORA")]
+    [Display(Name = "Editora")]
     public int IdEditora { get; set; }
 
     [Column("PAGINAS")]
+    [Display(Name = "Páginas")]
     public int Paginas { get; set; }
 
     [Column("PRECO", TypeName = "decimal(10, 2)")]
+    [Display(Name = "Preço")]
     public decimal Preco { get; set; }
 
     [Column("ID_CAPA")]
+    [Display(Name = "Imagem Capa")]
     public int? IdCapa { get; set; }
 
     [Column("ID_COLECAO")]
+    [Display(Name = "Coleção")]
     public int? IdColecao { get; set; }
 
     [ForeignKey("IdAutor")]
     [InverseProperty("Tblivro")]
+    [Display(Name = "Autor")]
     public virtual Tbautor IdAutor1 { get; set; }
 
     [ForeignKey("IdCapa")]
     [InverseProperty("Tblivro")]
+    [Display(Name = "Imagem Capa")]
     public virtual TbcapaLivro IdCapaNavigation { get; set; }
 
     [ForeignKey("IdColecao")]
     [InverseProperty("Tblivro")]
+    [Display(Name = "Coleção")]
     public virtual Tbcolecao IdColecaoNavigation { get; set; }
 
     [ForeignKey("IdEditora")]
     [InverseProperty("Tblivro")]
+    [Display(Name = "Editora")]
     public virtual Tbeditora IdEditoraNavigation { get; set; }
 
     [ForeignKey("IdLivro")]
