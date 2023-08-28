@@ -64,5 +64,22 @@ namespace iBiblioteca.WEB.Controllers
             return RedirectToAction("Index");
         }
         #endregion
+
+        #region ObterImagem
+
+        public IActionResult GetImagem(int id)
+        {
+            var capaLivro = oVwLivroService.oRepositoryVwLivro.SelecionarPK(id);
+           
+            if (capaLivro != null && capaLivro.Capa != null)
+            {
+                return File(capaLivro.Capa, "image/jpg");
+            }
+
+            var placeholderImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "placeholder.jpg");
+            var placeholderBytes = System.IO.File.ReadAllBytes(placeholderImagePath);
+            return File(placeholderBytes, "image/jpg");
+        }
+        #endregion
     }
 }

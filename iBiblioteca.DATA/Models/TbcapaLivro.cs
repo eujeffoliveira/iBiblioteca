@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
+using iBiblioteca.DATA.Services;
 
 namespace iBiblioteca.DATA.Models;
 
@@ -26,6 +27,25 @@ public partial class TbcapaLivro
     [Column("CAPA")]
     [Display(Name = "Imagem da Capa")]
     public byte[] Capa { get; set; }
+
+    //#region ObterImagem
+
+    //    public IActionResult GetImagem(int id)
+    //    {
+    //       var capalivro = oCapaLivroService
+        
+    //    var capaLivro = oVwLivroService.oRepositoryVwLivro.SelecionarPK(id);
+           
+    //        if (capaLivro != null && capaLivro.Capa != null)
+    //        {
+    //            return File(capaLivro.Capa, "image/jpg");
+    //        }
+
+    //        var placeholderImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "placeholder.jpg");
+    //        var placeholderBytes = System.IO.File.ReadAllBytes(placeholderImagePath);
+    //        return File(placeholderBytes, "image/jpg");
+    //    }
+    //    #endregion
 
     [Column("CAMINHO")]
     [StringLength(255)]

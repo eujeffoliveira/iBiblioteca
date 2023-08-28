@@ -70,7 +70,7 @@
                 @Html.DisplayFor(modelItem => item.Colecao)
             </td>
             <td>
-              <img src="@Url.Action("GetImage", "VwLivroController", new {id = item.Capa})" width="100" height="100" />
+              <img src="@Url.Action("GetImage", "VwLivroController", new {id = item.Capa})"/>
             </td>            
                 <td>
                     <a asp-action="Edit" class="btn btn-secondary mr-1" asp-route-id="@item.Id">Edit</a> |
