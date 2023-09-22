@@ -6,22 +6,28 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace iBiblioteca.DATA.Models;
-
-[Table("TBEDITORA")]
-public partial class Tbeditora
+namespace iBiblioteca.DATA.Models
 {
-    [Key]
-    [Column("ID")]
-    public int Id { get; set; }
+    // A classe Tbeditora representa a entidade Editora no banco de dados.
+    [Table("TBEDITORA")] // Atributo que mapeia a classe para a tabela "TBEDITORA" no banco de dados.
+    public partial class Tbeditora
+    {
+        [Key] // Atributo que indica que a propriedade "Id" é a chave primária da tabela.
+        [Column("ID")] // Atributo que mapeia a propriedade para a coluna "ID" no banco de dados.
+        public int Id { get; set; } // Propriedade que representa o ID da editora.
 
-    [Required]
-    [Column("NOME")]
-    [StringLength(50)]
-    [Unicode(false)]
-    [Display(Name = "Nome da Editora")]
-    public string Nome { get; set; }
+        [Required] // Atributo que indica que a propriedade "Nome" é obrigatória.
+        [Column("NOME")] // Atributo que mapeia a propriedade para a coluna "NOME" no banco de dados.
+        [StringLength(50)] // Define o tamanho máximo da string.
+        [Unicode(false)] // Indica que a string não é unicode.
+        [Display(Name = "Nome da Editora")] // Atributo que especifica o nome de exibição da propriedade.
+        public string Nome { get; set; } // Propriedade que representa o nome da editora.
 
-    [InverseProperty("IdEditoraNavigation")]
-    public virtual ICollection<Tblivro> Tblivro { get; set; } = new List<Tblivro>();
+        [InverseProperty("IdEditoraNavigation")]
+        // Atributo que indica a propriedade de navegação reversa para a coleção de livros relacionados à editora.
+        public virtual ICollection<Tblivro> Tblivro { get; set; } = new List<Tblivro>();
+        // Propriedade de navegação que permite acessar os livros associados a esta editora.
+
+        // Esta classe mapeia a estrutura da tabela "TBEDITORA" no banco de dados e define suas propriedades.
+    }
 }

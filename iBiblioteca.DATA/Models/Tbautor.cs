@@ -43,9 +43,11 @@ public partial class Tbautor
     [Display(Name = "Nacionalidade")]
     public string Nacionalidade { get; set; }
 
+    // Coleção de Tblivro associada a este autor (relação um-para-muitos)
     [InverseProperty("IdAutor1")]
     public virtual ICollection<Tblivro> Tblivro { get; set; } = new List<Tblivro>();
 
+    // Coleção de Tblivro associada a este autor (relação muitos-para-um)
     [ForeignKey("IdAutor")]
     [InverseProperty("IdAutorNavigation")]
     public virtual ICollection<Tblivro> IdLivro { get; set; } = new List<Tblivro>();
