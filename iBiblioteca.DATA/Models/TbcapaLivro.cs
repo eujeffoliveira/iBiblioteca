@@ -28,24 +28,27 @@ public partial class TbcapaLivro
     [Display(Name = "Imagem da Capa")]
     public byte[] Capa { get; set; }
 
-    //#region ObterImagem
+    #region ObterImagem
+    //public IActionResult GetImagem(int id)
+    //{
+    //    // Chama o serviço ou repositório para obter a capa do livro com base no ID
+    //    var capaLivro = oCapaLivroService.ObterPorId(id);
 
-    //    public IActionResult GetImagem(int id)
+    //    if (capaLivro != null && capaLivro.Capa != null)
     //    {
-    //       var capalivro = oCapaLivroService
-        
-    //    var capaLivro = oVwLivroService.oRepositoryVwLivro.SelecionarPK(id);
-           
-    //        if (capaLivro != null && capaLivro.Capa != null)
-    //        {
-    //            return File(capaLivro.Capa, "image/jpg");
-    //        }
-
-    //        var placeholderImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "placeholder.jpg");
-    //        var placeholderBytes = System.IO.File.ReadAllBytes(placeholderImagePath);
-    //        return File(placeholderBytes, "image/jpg");
+    //        // Retorna a imagem da capa do livro como um arquivo de imagem no formato "image/jpg"
+    //        return File(capaLivro.Capa, "image/jpg");
     //    }
-    //    #endregion
+
+    //    // Se a capa do livro não foi encontrada ou é nula, carrega uma imagem de espaço reservado (placeholder)
+    //    var placeholderImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "placeholder.jpg");
+    //    var placeholderBytes = System.IO.File.ReadAllBytes(placeholderImagePath);
+
+    //    // Retorna a imagem de espaço reservado como um arquivo de imagem no formato "image/jpg"
+    //    return File(placeholderBytes, "image/jpg");
+    //}
+
+    #endregion
 
     [Column("CAMINHO")]
     [StringLength(255)]

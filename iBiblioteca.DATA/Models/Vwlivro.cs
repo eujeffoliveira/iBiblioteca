@@ -4,93 +4,95 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace iBiblioteca.DATA.Models;
-[Table("VW_LIVRO")]
-[Index("IdAutor", Name = "IX_TBLIVRO_ID_AUTOR")]
-[Index("Isbn", Name = "IX_TBLIVRO_ISBN")]
-[Index("Titulo", Name = "IX_TBLIVRO_TITULO")]
-public partial class Vwlivro
+namespace iBiblioteca.DATA.Models
 {
-    [Key]
-    [Column("ID")]
-    public int Id { get; set; }
-
-    [Required]
-    [Column("TITULO")]
-    [StringLength(100)]
-    [Unicode(false)]
-    [Display(Name = "Título")]
-    public string Titulo { get; set; }
-
-    [Column("ID_AUTOR")]
-    public int IdAutor { get; set; }
-
-    [Column("DATA_PUBLICACAO", TypeName = "date")]
-    [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
-    [Display(Name = "Data da Publicação")]
-    public DateTime DataPublicacao { get; set; }
-
-    [Required]
-    [Column("ISBN")]
-    [StringLength(20)]
-    [Unicode(false)]
-    [Display(Name = "ISBN")]
-    public string Isbn { get; set; }
-
-    [Column("ID_EDITORA")]
-    public int IdEditora { get; set; }
-
-    [Column("PAGINAS")]
-    [Display(Name = "Páginas")]
-    public int Paginas { get; set; }
-
-    [Column("PRECO", TypeName = "decimal(10, 2)")]
-    [Display(Name = "Preço")]
-    public decimal Preco { get; set; }
-
-    [Column("ID_CAPA")]
-    public int? IdCapa { get; set; }
-
-    [Column("ID_COLECAO")]
-    public int? IdColecao { get; set; }
-
-    [Required]
-    [Column("NOME_CONHECIDO")]
-    [StringLength(50)]
-    [Unicode(false)]
-    [Display(Name = "Nome Conhecido")]
-    public string NomeConhecido { get; set; }
-
-    [Required]
-    [Column("EDITORA")]
-    [StringLength(50)]
-    [Unicode(false)]
-    [Display(Name = "Editora")]
-    public string Editora { get; set; }
-
-    [Required]
-    [Column("COLECAO")]
-    [StringLength(50)]
-    [Unicode(false)]
-    [Display(Name = "Coleção")]
-    public string Colecao { get; set; }
-
-    [Required]
-    [Column("CAPA")]
-    [Display(Name = "Capa")]
-    public byte[] Capa { get; set; }
-
-    // Propriedade de imagem para exibição
-    [NotMapped] // Não será mapeada no banco de dados
-    public System.Drawing.Image CapaImage
+    // Define a classe Vwlivro que representa uma visualização (view) de livros
+    [Table("VW_LIVRO")] // Define o nome da tabela no banco de dados
+    [Index("IdAutor", Name = "IX_TBLIVRO_ID_AUTOR")] // Define um índice na coluna IdAutor
+    [Index("Isbn", Name = "IX_TBLIVRO_ISBN")] // Define um índice na coluna Isbn
+    [Index("Titulo", Name = "IX_TBLIVRO_TITULO")] // Define um índice na coluna Titulo
+    public partial class Vwlivro
     {
-        get
+        [Key] // Indica que a propriedade Id é a chave primária da tabela
+        [Column("ID")] // Define o nome da coluna no banco de dados
+        public int Id { get; set; } // Propriedade que representa o ID do livro
+
+        [Required] // Indica que o campo Titulo é obrigatório
+        [Column("TITULO")] // Define o nome da coluna no banco de dados
+        [StringLength(100)] // Define o comprimento máximo da string
+        [Unicode(false)] // Indica que o campo não aceita caracteres Unicode
+        [Display(Name = "Título")] // Define o rótulo a ser exibido em interfaces de usuário
+        public string Titulo { get; set; } // Propriedade que representa o título do livro
+
+        [Column("ID_AUTOR")] // Define o nome da coluna no banco de dados
+        public int IdAutor { get; set; } // Propriedade que representa o ID do autor do livro
+
+        [Column("DATA_PUBLICACAO", TypeName = "date")] // Define o nome da coluna e o tipo de dados no banco de dados
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")] // Define o formato de exibição da data
+        [Display(Name = "Data da Publicação")] // Define o rótulo a ser exibido em interfaces de usuário
+        public DateTime DataPublicacao { get; set; } // Propriedade que representa a data de publicação do livro
+
+        [Required] // Indica que o campo Isbn é obrigatório
+        [Column("ISBN")] // Define o nome da coluna no banco de dados
+        [StringLength(20)] // Define o comprimento máximo da string
+        [Unicode(false)] // Indica que o campo não aceita caracteres Unicode
+        [Display(Name = "ISBN")] // Define o rótulo a ser exibido em interfaces de usuário
+        public string Isbn { get; set; } // Propriedade que representa o ISBN do livro
+
+        [Column("ID_EDITORA")] // Define o nome da coluna no banco de dados
+        public int IdEditora { get; set; } // Propriedade que representa o ID da editora do livro
+
+        [Column("PAGINAS")] // Define o nome da coluna no banco de dados
+        [Display(Name = "Páginas")] // Define o rótulo a ser exibido em interfaces de usuário
+        public int Paginas { get; set; } // Propriedade que representa o número de páginas do livro
+
+        [Column("PRECO", TypeName = "decimal(10, 2)")] // Define o nome da coluna e o tipo de dados no banco de dados
+        [Display(Name = "Preço")] // Define o rótulo a ser exibido em interfaces de usuário
+        public decimal Preco { get; set; } // Propriedade que representa o preço do livro
+
+        [Column("ID_CAPA")] // Define o nome da coluna no banco de dados
+        public int? IdCapa { get; set; } // Propriedade que representa o ID da capa do livro (pode ser nulo)
+
+        [Column("ID_COLECAO")] // Define o nome da coluna no banco de dados
+        public int? IdColecao { get; set; } // Propriedade que representa o ID da coleção do livro (pode ser nulo)
+
+        [Required] // Indica que o campo NomeConhecido é obrigatório
+        [Column("NOME_CONHECIDO")] // Define o nome da coluna no banco de dados
+        [StringLength(50)] // Define o comprimento máximo da string
+        [Unicode(false)] // Indica que o campo não aceita caracteres Unicode
+        [Display(Name = "Nome Conhecido")] // Define o rótulo a ser exibido em interfaces de usuário
+        public string NomeConhecido { get; set; } // Propriedade que representa um nome conhecido do livro
+
+        [Required] // Indica que o campo Editora é obrigatório
+        [Column("EDITORA")] // Define o nome da coluna no banco de dados
+        [StringLength(50)] // Define o comprimento máximo da string
+        [Unicode(false)] // Indica que o campo não aceita caracteres Unicode
+        [Display(Name = "Editora")] // Define o rótulo a ser exibido em interfaces de usuário
+        public string Editora { get; set; } // Propriedade que representa a editora do livro
+
+        [Required] // Indica que o campo Colecao é obrigatório
+        [Column("COLECAO")] // Define o nome da coluna no banco de dados
+        [StringLength(50)] // Define o comprimento máximo da string
+        [Unicode(false)] // Indica que o campo não aceita caracteres Unicode
+        [Display(Name = "Coleção")] // Define o rótulo a ser exibido em interfaces de usuário
+        public string Colecao { get; set; } // Propriedade que representa a coleção do livro
+
+        [Required] // Indica que o campo Capa é obrigatório
+        [Column("CAPA")] // Define o nome da coluna no banco de dados
+        [Display(Name = "Capa")] // Define o rótulo a ser exibido em interfaces de usuário
+        public byte[] Capa { get; set; } // Propriedade que representa os dados da imagem da capa do livro
+
+        // Propriedade de imagem para exibição
+        [NotMapped] // Indica que esta propriedade não será mapeada no banco de dados
+        public System.Drawing.Image CapaImage
         {
-            using (MemoryStream ms = new MemoryStream(Capa))
+            get
             {
-                return System.Drawing.Image.FromStream(ms);
+                using (MemoryStream ms = new MemoryStream(Capa))
+                {
+                    return System.Drawing.Image.FromStream(ms);
+                }
             }
         }
     }
-    
 }
