@@ -52,12 +52,21 @@
 
 
 ## GitHub Status 
+
+<table align="center" style="border: none;"><tr><td valign="top" width="50%" style="border: none;">
+
+<div align="center" style="border: none;"><img src="https://github-readme-stats.vercel.app/api?username=eujeffoliveira&show_icons=true&hide_border=true" align="center" /></div>
+
+</td><td valign="top" width="50%"style="border: none;">
+
+<div align="center" style="border: none;"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=eujeffoliveira&layout=compact&hide_border=true" align="center" /></div>
+
+</td></tr></table>
+<br />
+
 <div align="center">
 <img src="https://komarev.com/ghpvc/?username=eujeffoliveira&&style=flat-square" align="center" />
 </div>  
+
   
 
-<img src="https://github-readme-stats.vercel.app/api?username=eujeffoliveira&show_icons=true&count_private=true&hide_border=true" align="left" />  
-
-<div align="right"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=eujeffoliveira&hide_border=true&layout=compact" align="right" /></div>
-<br />
