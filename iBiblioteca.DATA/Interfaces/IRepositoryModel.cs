@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace iBiblioteca.DATA.Interfaces
+﻿namespace iBiblioteca.DATA.Interfaces
 {
     // Interface genérica para repositórios de modelos (classes) onde T é o tipo do modelo.
     public interface IRepositoryModel<T> where T : class
